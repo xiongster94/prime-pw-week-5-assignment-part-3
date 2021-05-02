@@ -3,7 +3,7 @@ console.log('***** Music Collection *****')
 let collection = [];
 
 // create  addToCollection function
-function addToCollection (title, artist, yearPublished){
+function addToCollection ( title, artist, yearPublished ){
   let newSong = {
     title: title,
     artist: artist,
@@ -21,11 +21,10 @@ console.log('Added', addToCollection ('Where Is The Love?', 'Black Eyed Peas', 2
 console.log('Added', addToCollection ('Best Day Of My Life', 'American Authors', 2014));
 console.log('Added', addToCollection ('I Gotta Feeling', 'Black Eyed Peas', 2009));
 
-console.log(collection);
-// testing addToCollection function
+console.log( collection ); // testing addToCollection function
 
 // create showCollection function
-function showCollection(array){
+function showCollection( array ){
   console.log(`Songs in collection: ${array.length}`);
   for (let i = 0; i < array.length; i++) {
     let values = Object.values(array[i]);
@@ -34,4 +33,21 @@ function showCollection(array){
   } // end loop for each value found in each array[i]
 } // end show collection function
 
-showCollection(collection);
+showCollection( collection ); // testing showCollection function
+
+// create findByArtist function
+function findByArtist( artist ){
+  let artistList = []; // create empty array
+  for (songs of collection){
+  if (artist === songs.artist) {
+    artistList.push(songs);
+  } // adds song to artistList if match found
+  else if (artist != songs.artist){
+    null
+    }// if no match, null
+  }// ends loop and log results
+  return console.log(artistList);
+} // end findByArtist functions
+
+findByArtist ('The Beatles'); // testing findByArtist function
+findByArtist ('The Fray'); // testing null option
