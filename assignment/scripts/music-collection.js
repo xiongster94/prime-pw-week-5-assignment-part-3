@@ -37,13 +37,14 @@ showCollection( collection ); // testing showCollection function
 
 // create findByArtist function
 function findByArtist( artist ){
+  console.log('in findByArtist function');
   let artistList = []; // create empty array
   for (songs of collection){
   if (artist === songs.artist) {
     artistList.push(songs);
   } // adds song to artistList if match found
   else if (artist != songs.artist){
-    null
+    null;
     }// if no match, null
   }// ends loop and log results
   return console.log(artistList);
@@ -51,3 +52,27 @@ function findByArtist( artist ){
 
 findByArtist ('The Beatles'); // testing findByArtist function
 findByArtist ('The Fray'); // testing null option
+
+//stretch goals
+
+//create search function
+function search( artist, year ){
+  console.log('in search function');
+  let searchList = []; // create empty array as search results
+  for (lists of collection){
+    if (artist === lists.artists || year === lists.yearPublished){
+      searchList.push(lists);
+    }  // return searched criteria
+    else if (artist === '' && year === ''){
+      searchList = collection;
+    }  // return collection if nothing is entered
+    else if (artist != lists.artists || year != lists.yearPublished){
+      null;
+    }  // return an empty array if no matches
+  } //ends loop and returns logged results
+  return console.log(searchList);
+} // ends search function
+
+search ( 'Black Eyed Peas', 2003 ); // testing for search true result
+search ( 'The Fray', 1999); // testing for no match result
+search ( '', '' ); // testing empty result
